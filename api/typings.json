@@ -3,5 +3,8 @@
     "async": "registry:dt/async#2.0.1+20170322225536",
     "express-validator": "registry:dt/express-validator#2.20.4+20160818215330",
     "uuid": "registry:dt/uuid#3.3.0+20160728152600"
+  },
+  "globalDevDependencies": {
+    "jest": "registry:dt/jest#19.2.0+20170312200138"
   }
 }
