@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  description: >-
+    Countries API
+  version: 0.0.1
+  title: Countries API
+basePath: /api
+tags:
+  - name: Countries
+    description: Countries API
+  - name: Search
+    description: Search
+schemes:
+  - http
+paths:
+  /:
+    get:
+      tags:
+        - Search
+      summary: Search countries
+      description: Search countries
+      operationId: search
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Country"
+        '422':
+          description: Invalid status value
+  /countries/{name}:
+    get:
+      tags:
+        - Countries
+      summary: Gets specific country by name
+      description: Gets specific country by name
+      operationId: getCountryByName
+      produces:
+        - application/json
+      parameters:
+        - name: "name"
+          in: "path"
+          description: "Country name"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: "#/definitions/Country"
+        '422':
+          description: Invalid status value
+definitions:
+  Country:
+    type: "object"
+    properties:
+      name:
+        type: "string"
